@@ -1,4 +1,4 @@
 # My Learning Projects
 
--[] Starter.
-Test SSH Push
+- [] Starter Test SSH Push
+- [] Modify file.
