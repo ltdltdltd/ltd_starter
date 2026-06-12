@@ -1,0 +1,66 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: clang++ 编译当前文件（单文件）",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-std=c++17",
+                "-Iinclude",
+                "-g",
+                "${workspaceFolder}/src/${fileBasename}",
+                "-o",
+                "${workspaceFolder}/output/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": "build",
+            "detail": "只编译当前打开的 .cpp（不适合多文件项目）"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: clang++ 编译所有文件（推荐）",
+            "command": "/usr/bin/clang++",
+            "args": [
+                "-std=c++17",
+                "-Iinclude",
+                "-g",
+                "${workspaceFolder}/src/*.cpp",
+                "-o",
+                "${workspaceFolder}/output/program"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "编译 src/ 下所有 cpp，输出到 output/program"
+        },
+        {
+            "type": "shell",
+            "label": "C/C++: 编译并运行",
+            "command": "${workspaceFolder}/output/program",
+            "dependsOn": ["C/C++: clang++ 编译所有文件（推荐）"],
+            "group": "test",
+            "problemMatcher": [],
+            "detail": "编译所有文件并运行"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "sh",
+            "args": [
+                "-c",
+                "rm -rf ${workspaceFolder}/output 2>/dev/null; mkdir -p ${workspaceFolder}/output"
+            ],
+            "group": "none",
+            "detail": "清空 output 目录"
+        }
+    ]
+}
