@@ -1,21 +1,14 @@
 #include <iostream>
 #include "MyClass.h"
 
-int add(int a, int b) {
-    return a + b;
-}
-
-int multiply(int a, int b) {
-    return a * b;
-}
-
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-    // Demonstrate add and multiply functions
-    int a = 10, b = 3;
-    std::cout << "add(" << a << ", " << b << ") = " << add(a, b) << std::endl;
-    std::cout << "multiply(" << a << ", " << b << ") = " << multiply(a, b) << std::endl;
+    // Demonstrate MyClass with add and multiply member functions
+    MyClass obj(10);
+    int b = 3;
+    std::cout << "add(" << obj.getValue() << ", " << b << ") = " << obj.add(b) << std::endl;
+    std::cout << "multiply(" << obj.getValue() << ", " << b << ") = " << obj.multiply(b) << std::endl;
 
     int count = 5;
 
@@ -24,7 +17,7 @@ int main() {
         std::cout << "I say: Hello!" << count << std::endl;
     }
 
-    MyClass obj(42);
+    obj.setValue(42);
     std::cout << "MyClass value: " << obj.getValue() << std::endl;
 
     return 0;
